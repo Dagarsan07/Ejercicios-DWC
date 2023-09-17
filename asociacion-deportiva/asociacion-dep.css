@@ -1,0 +1,41 @@
+body {
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "aside1 main aside2"
+    "footer footer footer";
+}
+
+header {
+    grid-area: header;
+    background-color: red;
+}
+
+#colIzq {
+    grid-area: aside1;
+    background-color: orange;
+}
+
+#colIzq ul {
+    list-style: none;
+}
+
+#colIzq ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+#colDcha {
+    grid-area: aside2;
+    background-color: green;
+}
+
+main {
+    grid-area: main;
+    background-color: yellow;
+}
+
+footer {
+    grid-area: footer;
+    background-color: blue;
+}

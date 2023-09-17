@@ -7,7 +7,14 @@
     <title>Encriptador</title>
 </head>
 <body>
-    <input type="text" id="mensaje">
-    <button type="button" onclick="cifrarMensaje()">Cifrar</button>
+    <main>
+        <h1>Cifrado Cesar</h1>
+        <form id="cifrador" autocomplete="off">
+            <label for="mensaje">Mensaje: </label><br>
+            <textarea id="mensaje" spellcheck="false" type="text" name="mensaje" rows="3" cols="35"></textarea><br><br>
+            <button type="button" onclick="cifrar()">Cifrar</button> 
+            <button type="button" onclick="descifrar()">Descifrar</button>
+        </form>
+    </main>
 </body>
 </html>
