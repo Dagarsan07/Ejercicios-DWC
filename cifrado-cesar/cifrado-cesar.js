@@ -1,7 +1,7 @@
 const abecedario = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'Y', 'Z'];
-const indiceDesplazamiento = 6;
 function cifrar() {
     let mensaje = document.getElementById("mensaje").value.toUpperCase();
+    const indiceDesplazamiento = document.getElementById("desplazamiento").valueAsNumber;
     let mensajeCifrado = "";
     for (i = 0; i < mensaje.length; i++) {
         let letra = mensaje.charAt(i);
@@ -22,6 +22,7 @@ function cifrar() {
 
 function descifrar() {
     let mensaje = document.getElementById("mensaje").value.toUpperCase();
+    const indiceDesplazamiento = document.getElementById("desplazamiento").value;
     let mensajeDescifrado = "";
     for (i = 0; i < mensaje.length; i++) {
         let letra = mensaje.charAt(i);
