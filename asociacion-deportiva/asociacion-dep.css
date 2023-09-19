@@ -6,9 +6,35 @@ body {
     "footer footer footer";
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color:grey;
+    transition: 0.3;
+}
+
+.active {
+    color: lightgrey;
+}
+
 header {
     grid-area: header;
     background-color: red;
+    display: flex;
+    justify-content: space-between;
+}
+
+header ul {
+    list-style: none;
+}
+
+header li {
+    display: inline-block;
+    margin-top: 15px;
+    margin-right: 20px;
 }
 
 #colIzq {
@@ -18,11 +44,6 @@ header {
 
 #colIzq ul {
     list-style: none;
-}
-
-#colIzq ul li a {
-    text-decoration: none;
-    color: black;
 }
 
 #colDcha {
