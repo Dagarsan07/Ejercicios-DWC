@@ -38,7 +38,7 @@ function preguntaAleatoria() {
     return Math.floor(Math.random() * (maximo - minimo + 1) + minimo);
 }
 
-let tarjeta = [
+const tarjeta = [
     deporte[preguntaAleatoria()], 
     arte[preguntaAleatoria()],
     espectaculos[preguntaAleatoria()],
@@ -48,25 +48,19 @@ let tarjeta = [
 ];
 
 function cargarPregunta(categoria) {
-    let titulo = document.getElementById('titulo').innerHTML;
-    let pregunta = document.getElementById('pregunta').innerHTML;
-    if (categoria == 'deporte') {
-        titulo = 'Deporte';
-        pregunta = `
-            <h3>${tarjeta[0].pregunta}</h3>
-            <div class="form-check">
-                <input class="form-check-input type="radio" name="a">
-                <label class="form-check-label" for="a"> ${tarjeta[0].respuestas.a} </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input type="radio" name="b">
-                <label class="form-check-label" for="b"> ${tarjeta[0].respuestas.b} </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input type="radio" name="c">
-                <label class="form-check-label" for="c"> ${tarjeta[0].respuestas.c} </label>
-            </div>
-        `;
+    let posicion = tarjeta[categoria];
+    document.getElementById("pregunta").innerHTML  = posicion.pregunta;
+    document.getElementById("opcionA").innerHTML  = posicion.respuestas.a;
+    document.getElementById("opcionB").innerHTML  = posicion.respuestas.b;
+    document.getElementById("opcionC").innerHTML  = posicion.respuestas.c;
+}
+
+function comprobarResultado() {
+    let eleccion = document.querySelector('input[name="respuesta"]:checked');
+    
+    if(eleccion) {
+        
+    } else {
         
     }
 }
