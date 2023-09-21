@@ -38,10 +38,6 @@ function preguntaAleatoria() {
     return Math.floor(Math.random() * (maximo - minimo + 1) + minimo);
 }
 
-function comprobarDeporte() {
-
-}
-
 let tarjeta = [
     deporte[preguntaAleatoria()], 
     arte[preguntaAleatoria()],
@@ -50,3 +46,27 @@ let tarjeta = [
     ciencia[preguntaAleatoria()],
     geografia[preguntaAleatoria()]
 ];
+
+function cargarPregunta(categoria) {
+    let titulo = document.getElementById('titulo').innerHTML;
+    let pregunta = document.getElementById('pregunta').innerHTML;
+    if (categoria == 'deporte') {
+        titulo = 'Deporte';
+        pregunta = `
+            <h3>${tarjeta[0].pregunta}</h3>
+            <div class="form-check">
+                <input class="form-check-input type="radio" name="a">
+                <label class="form-check-label" for="a"> ${tarjeta[0].respuestas.a} </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input type="radio" name="b">
+                <label class="form-check-label" for="b"> ${tarjeta[0].respuestas.b} </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input type="radio" name="c">
+                <label class="form-check-label" for="c"> ${tarjeta[0].respuestas.c} </label>
+            </div>
+        `;
+        
+    }
+}
