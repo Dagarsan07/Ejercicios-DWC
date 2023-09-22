@@ -47,20 +47,46 @@ const tarjeta = [
     geografia[preguntaAleatoria()]
 ];
 
+let mensaje = document.querySelector('#mensaje');
+let botonComprobar = document.querySelector("button.btn.btn-dark");
+
 function cargarPregunta(categoria) {
     let posicion = tarjeta[categoria];
+    document.querySelector('form').reset();
+    mensaje.innerHTML = '';
     document.getElementById("pregunta").innerHTML  = posicion.pregunta;
+    botonComprobar.setAttribute('id', categoria);
+    botonComprobar.disabled = false;
     document.getElementById("opcionA").innerHTML  = posicion.respuestas.a;
     document.getElementById("opcionB").innerHTML  = posicion.respuestas.b;
     document.getElementById("opcionC").innerHTML  = posicion.respuestas.c;
 }
 
-function comprobarResultado() {
+function comprobarResultado(categoria) {
+    debugger;
     let eleccion = document.querySelector('input[name="respuesta"]:checked');
-    
     if(eleccion) {
-        
+        if (eleccion.value == tarjeta[categoria].correcta) {
+            aciertos++;
+            mensaje.innerHTML = 'Correcto';
+            mensaje.classList.add('text-success');
+        } else {
+            fallos++;
+            mensaje.innerHTML = 'Incorrecto';
+            mensaje.classList.add('text-danger');
+        }
+        botonComprobar.setAttribute('disabled', 'true');
     } else {
-        
+        mensaje.innerHTML = 'No ha respondido la pregunta. Elija una opción';
+    }
+    document.querySelector(`button[value='${categoria}']`).setAttribute('disabled', 'true');
+    ifTerminaPartida(aciertos, fallos);
+}
+
+function ifTerminaPartida(aciertos, fallos) {
+    if (aciertos == 4) {
+        window.location.href = "victoria.html";
+    } else if (fallos == 3) {
+        window.location.href = "derrota.html";
     }
 }
