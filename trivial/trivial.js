@@ -53,6 +53,11 @@ let botonComprobar = document.querySelector("button.btn.btn-dark");
 function cargarPregunta(categoria) {
     let posicion = tarjeta[categoria];
     document.querySelector('form').reset();
+    if (mensaje.classList.contains('text-success')) {
+        mensaje.classList.remove('text-success');
+    } else if (mensaje.classList.contains('text-danger')) {
+        mensaje.classList.remove('text-danger');
+    }
     mensaje.innerHTML = '';
     document.getElementById("pregunta").innerHTML  = posicion.pregunta;
     botonComprobar.setAttribute('id', categoria);
@@ -63,17 +68,18 @@ function cargarPregunta(categoria) {
 }
 
 function comprobarResultado(categoria) {
-    debugger;
     let eleccion = document.querySelector('input[name="respuesta"]:checked');
     if(eleccion) {
         if (eleccion.value == tarjeta[categoria].correcta) {
             aciertos++;
             mensaje.innerHTML = 'Correcto';
             mensaje.classList.add('text-success');
+            document.querySelector('#aciertos').innerHTML = `Aciertos ${aciertos}/4`;
         } else {
             fallos++;
             mensaje.innerHTML = 'Incorrecto';
             mensaje.classList.add('text-danger');
+            document.querySelector('#fallos').innerHTML = `Fallos ${fallos}/3`;
         }
         botonComprobar.setAttribute('disabled', 'true');
     } else {
