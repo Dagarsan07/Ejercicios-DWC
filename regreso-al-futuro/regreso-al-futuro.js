@@ -1,6 +1,8 @@
 const meses = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 
 function viajeTemporal() {
+    let tiempoViajado = document.querySelector('#viajeResult');
+    tiempoViajado.innerHTML = '';
     const diaActual = document.querySelector('#ogDay').valueAsNumber;
     let mesActual = document.querySelector('#ogMonth').value.toLowerCase();
     let a = 0;
@@ -34,14 +36,23 @@ function viajeTemporal() {
     
     if (fechaActual < fechaDestino) {
         viajeMiliseg = fechaDestino - fechaActual;
-        viajeMinutos = viajeMiliseg / 60000;
-        console.log(viajeMinutos);
-        //alert(`Viajarás al futuro ${Math.round(annosViaje)} años, ${Math.round(diasViaje)} días, ${Math.round(horasViaje)} horas y ${Math.round(minsViaje)} minutos`);
+        viajeAnnos = viajeMiliseg / (1000 * 60 * 60 * 24 * 365);
+        viajeDias = (viajeAnnos - Math.floor(viajeAnnos)) * 365;
+        viajeHoras = (viajeDias - Math.floor(viajeDias)) * 24;
+        viajeMinutos = (viajeHoras - Math.floor(viajeHoras)) * 60;
+        tiempoViajado.innerHTML = `
+            Viajarás al futuro ${Math.floor(viajeAnnos)} años, ${Math.floor(viajeDias)} días, ${Math.floor(viajeHoras)} horas y ${Math.round(viajeMinutos)} minutos
+        `;
     } else if (fechaActual > fechaDestino) {
-        
-        
-        //alert(`Viajarás al pasado ${Math.round(annosViaje)} años, ${Math.round(diasViaje)} días, ${Math.round(horasViaje)} horas y ${Math.round(minsViaje)} minutos`);
+        viajeMiliseg = fechaActual - fechaDestino;
+        viajeAnnos = viajeMiliseg / (1000 * 60 * 60 * 24 * 365);
+        viajeDias = (viajeAnnos - Math.floor(viajeAnnos)) * 365;
+        viajeHoras = (viajeDias - Math.floor(viajeDias)) * 24;
+        viajeMinutos = (viajeHoras - Math.floor(viajeHoras)) * 60;
+        tiempoViajado.innerHTML = `
+            Viajarás al pasado ${Math.floor(viajeAnnos)} años, ${Math.floor(viajeDias)} días, ${Math.round(viajeHoras)} horas y ${Math.round(viajeMinutos)} minutos
+        `;
     } else {
-        //alert('No te vas a desplazar en el tiempo');
+        tiempoViajado.innerHTML = 'No te vas a desplazar en el tiempo';
     }
 }
