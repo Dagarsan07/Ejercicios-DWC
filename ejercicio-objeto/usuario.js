@@ -61,6 +61,7 @@ class Usuario {
         const annoDosDigitos = this.#_nacimiento.toString().substring(2);
 
         console.log(inicialNom + inicialAp1 + inicialAp2 + annoDosDigitos);
+        return `<p>- ${inicialNom}${inicialAp1}${inicialAp2}${annoDosDigitos}</p>`;
     }
 
     getEdad() {
