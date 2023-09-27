@@ -16,7 +16,7 @@ function viajeTemporal() {
     const fechaActual = new Date(annoActual, mesActual, diaActual, horaActual, minActual);
     
     const diaDestino = document.querySelector('#desDay').valueAsNumber;
-    let mesDestino = document.querySelector('#desMonth').value;
+    let mesDestino = document.querySelector('#desMonth').value.toLowerCase();
     let d = 0;
     do {
         mesDestino = mesDestino == meses[d] ? d : mesDestino;
@@ -44,7 +44,7 @@ function viajeTemporal() {
             viajeHoras++;
         }
         tiempoViajado.innerHTML = `
-            Viajarás al futuro ${Math.floor(viajeAnnos)} años, ${Math.floor(viajeDias)} días, ${Math.floor(viajeHoras)} horas y ${Math.round(viajeMinutos)} minutos
+            <h5 class="px-3 py-3">Viajarás al futuro ${Math.floor(viajeAnnos)} años, ${Math.floor(viajeDias)} días, ${Math.floor(viajeHoras)} horas y ${Math.round(viajeMinutos)} minutos</h5>
         `;
     } else if (fechaActual > fechaDestino) {
         viajeMiliseg = fechaActual - fechaDestino;
@@ -52,16 +52,14 @@ function viajeTemporal() {
         viajeDias = (viajeAnnos - Math.floor(viajeAnnos)) * 365;
         viajeHoras = (viajeDias - Math.floor(viajeDias)) * 24;
         viajeMinutos = (viajeHoras - Math.floor(viajeHoras)) * 60;
-        if (minActual == minDestino && horaActual == horaDestino) {
-            viajeMinutos = 0;
-            viajeHoras = 0;
-        }
+        if (minActual == minDestino) {viajeMinutos = 0};
+        if (horaActual == horaDestino) {viajeHoras = 0};
         tiempoViajado.innerHTML = `
-            Viajarás al pasado ${Math.floor(viajeAnnos)} años, ${Math.floor(viajeDias)} días, ${Math.round(viajeHoras)} horas y ${Math.round(viajeMinutos)} minutos
+            <h5 class="px-3 py-3">Viajarás al pasado ${Math.floor(viajeAnnos)} años, ${Math.floor(viajeDias)} días, ${Math.round(viajeHoras)} horas y ${Math.round(viajeMinutos)} minutos</h5>
         `;
     } else if (isNaN(fechaActual)|| isNaN(fechaDestino)){
-        tiempoViajado.innerHTML = 'Alguna de las fechas es inválida. Vuelve a introducirlas';
+        tiempoViajado.innerHTML = '<h5 class="px-3 py-3">Alto ahí master. Pusiste algo mal. Te quedas en tu sitio</h5>';
     } else {
-        tiempoViajado.innerHTML = 'No te vas a desplazar en el tiempo';
+        tiempoViajado.innerHTML = '<h5 class="px-3 py-3">A no ser que pongas dos fechas diferentes, no voy a hacer nada</h5>';
     }
 }
