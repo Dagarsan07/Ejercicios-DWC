@@ -1,0 +1,62 @@
+body {
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "aside1 main aside2"
+    "footer footer footer";
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color:grey;
+    transition: 0.3;
+}
+
+.active {
+    color: lightgrey;
+}
+
+header {
+    grid-area: header;
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+}
+
+header ul {
+    list-style: none;
+}
+
+header li {
+    display: inline-block;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+#colIzq {
+    grid-area: aside1;
+    background-color: orange;
+}
+
+#colIzq ul {
+    list-style: none;
+}
+
+#colDcha {
+    grid-area: aside2;
+    background-color: green;
+}
+
+main {
+    grid-area: main;
+    background-color: yellow;
+}
+
+footer {
+    grid-area: footer;
+    background-color: blue;
+}

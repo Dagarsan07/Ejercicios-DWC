@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="cifrado-cesar.js"></script>
+    <title>Encriptador</title>
+</head>
+<body>
+    <main>
+        <h1>Cifrado Cesar</h1>
+        <form id="cifrador" autocomplete="off">
+            <label for="mensaje">Mensaje: </label><br>
+            <textarea id="mensaje" spellcheck="false" type="text" name="mensaje" rows="3" cols="35"></textarea><br><br>
+            <label for="desplazamiento">Indice de desplazamiento: </label> <br>
+            <input type="number" name="desplazamiento" id="desplazamiento"> <br> <br>
+            <button type="button" onclick="cifrar()">Cifrar</button> 
+            <button type="button" onclick="descifrar()">Descifrar</button>
+        </form>
+    </main>
+</body>
+</html>
