@@ -37,8 +37,6 @@ function comprobarFechas() {
             case "sep":
             case "nov":
                 if (diaActual > 30) {
-                    // mesActual = meses.indexOf(mesActual) + 1;
-                    // diaActual = diaActual - 30;
                     mensajeInfo.innerHTML = msgDiaInvalido;
                     return;
                 } else {
@@ -50,9 +48,6 @@ function comprobarFechas() {
                     if (annoActual % 4 == 0) {
                         if (annoActual % 100 != 0 || annoActual % 400 == 0) {
                             if (diaActual == 29) {
-                                // mesActual = meses.indexOf(mesActual) + 1;
-                                // diaActual = diaActual - 29;
-                                // break;
                                 mesActual = meses.indexOf(mesActual);
                                 break;
                             }
@@ -85,8 +80,6 @@ function comprobarFechas() {
             case "sep":
             case "nov":
                 if (diaDestino > 30) {
-                    // mesDestino = meses.indexOf(mesDestino) + 1;
-                    // diaDestino = diaDestino - 30;
                     mensajeInfo.innerHTML = msgDiaInvalido;
                     return;
                 } else {
@@ -98,9 +91,6 @@ function comprobarFechas() {
                     if (annoDestino % 4 == 0) {
                         if (annoDestino % 100 != 0 || annoDestino % 400 == 0) {
                             if (diaDestino == 29) {
-                                // mesDestino = meses.indexOf(mesDestino) + 1;
-                                // diaDestino = diaDestino - 29;
-                                // break;
                                 mesDestino = meses.indexOf(mesDestino);
                                 break;
                             }
