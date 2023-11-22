@@ -9,7 +9,7 @@ document.querySelector("#producto-form").addEventListener("submit", function (e)
         codigo: codigoProd,
         cantidad: cantidadProd
     }
-    fetch ('post-producto.php', {
+    fetch ('get-producto.php', {
         method: 'GET',
         body: JSON.stringify(datosProducto),
     })
