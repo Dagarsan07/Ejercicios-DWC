@@ -1,7 +1,6 @@
 <?php
 $datosJS = json_decode(file_get_contents('php://input'), true);
 $codigo = $datosJS['codigo'];
-$cantidad = $datosJS['cantidad'];
 
 require('conexion.php');
 try {
